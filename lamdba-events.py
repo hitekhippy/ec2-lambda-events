@@ -20,6 +20,7 @@ reservations = ec.describe_instance_status(
 try:
 	# Use this if you want to test on a single instance 
 	#maintenenaceids = ('instance-id')
+	# This picks up the instance from the ec2 events list
 	maintenenaceids = reservations['InstanceStatuses'][0]["InstanceId"]
 	print('%s is scheduled for maintenenace\n' %(maintenenaceids))
 except IndexError:
@@ -39,7 +40,7 @@ def instance_stop (id):
   
 )
 
-# Function for starting the instance if it's not in an ASG otherwise you'll get an error about the instance not being in a state "from which it can't be started. (IndexError)" 
+# Function for starting instances
 
 @retry(stop_max_attempt_number=10, wait_fixed=10000)
 def instance_start (id):
