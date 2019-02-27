@@ -113,7 +113,7 @@ try:
  	asg_instance_stop(maintenenaceids)
 
 except:
-	print "Somethigns wrong, exiting" 
+	print "Somethings wrong, exiting" 
 	sys.exit()
 	
 
